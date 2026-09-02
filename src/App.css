@@ -61,15 +61,12 @@ body {
   text-align: center;
   padding: 40px 20px;
 
- background-image:
-  linear-gradient(
-    rgba(20, 50, 25, 0.55),
-    rgba(20, 50, 25, 0.55)
-  ),
-  url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1600&q=80");
-
-background-size: cover;
-background-position: center;
+ .background-image {
+  background-image: url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 }
 
 .hero-content {

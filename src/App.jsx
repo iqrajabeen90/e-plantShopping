@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
@@ -5,10 +6,10 @@ import AboutUs from "./components/AboutUs";
 import "./App.css";
 import Cart from "./components/Cart";
 
-function Home() {
+function Home({ setShowProductList }) {
   return (
     <div className="home-page">
-      <div className="hero-overlay">
+      <div className="hero-overlay background-image">
         <div className="hero-content">
           <h1>Paradise Nursery</h1>
 
@@ -19,9 +20,13 @@ function Home() {
             own little paradise.
           </p>
 
-          <Link to="/plants" className="get-started-button">
-            Get Started
-          </Link>
+          <Link
+  to="/plants"
+  className="get-started-button"
+  onClick={() => setShowProductList(true)}
+>
+  Get Started
+</Link>
         </div>
       </div>
 
@@ -32,12 +37,19 @@ function Home() {
 
 
 function App() {
+  const [setShowProductList] = useState(false);
+
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+  path="/"
+  element={
+    <Home setShowProductList={setShowProductList} />
+  }
+/>
         <Route path="/plants" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
